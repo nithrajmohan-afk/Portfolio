@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nithin Rajmohan — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --text-secondary: #5A5A5A;
+    --accent: #2D5A3D;
+    --accent-light: #E8F0EB;
+    --accent-hover: #3D7A52;
+    --border: #E8E6E3;
+    --tag-bg: #F2F0ED;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+  }
+
+  .hero-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .hero-intro {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 620px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .hero-links a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ---- SECTION ---- */
+  .section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  /* ---- PROJECT CARD ---- */
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .project:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .project h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .project-org {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .project-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+
+  .project-body p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .project-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .outcome-card {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .outcome-card .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+
+  .outcome-card .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--tag-bg);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 16px;
+    transition: color 0.2s;
+  }
+
+  .project-link:hover { color: var(--accent-hover); }
+  .project-link svg { width: 14px; height: 14px; }
+
+  /* ---- APPROACH SECTION ---- */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .approach-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .approach-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .approach-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ---- TOOLS SECTION ---- */
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tool-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 6px;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    border-top: 1.5px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .footer-links a:hover { text-decoration: underline; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    .hero { padding: 48px 20px 40px; }
+    .section { padding: 0 20px 48px; }
+    .project { padding: 24px; }
+    .outcome-grid { grid-template-columns: 1fr 1fr; }
+    .project-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">Portfolio</div>
+    <h1>Nithin Rajmohan</h1>
+    <p class="hero-intro">
+      Program Lead at Zinnov with 5+ years building and scaling innovation programs for Fortune 100 clients. I work at the intersection of strategy, execution, and AI-native tooling. I build things that solve real problems, whether that's a platform for 20,000 users or an automation system that replaces hours of manual work.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:nith.rajmohan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/nithin-rajmohan/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/nithrajmohan-afk" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section">
+    <div class="section-label">What I've Built</div>
+
+    <!-- Project 1: Innovation Portal -->
+    <div class="project">
+      <div class="project-header">
+        <h3>Unified Innovation Portal</h3>
+        <span class="project-org">Walmart via Zinnov</span>
+      </div>
+      <p class="project-subtitle">Product owner for an internal platform consolidating all innovation programs</p>
+      <div class="project-body">
+        <p>
+          Walmart ran multiple innovation programs (hackathons, startup pilots, demo days) on separate tools with no unified view. I identified the problem, defined requirements, designed the workflows, and partnered with engineering to ship a single platform that replaced fragmented systems.
+        </p>
+        <p>
+          <strong>My role:</strong> Owned the full product lifecycle from problem identification through requirements gathering, workflow design, stakeholder alignment, UAT, rollout, and post-launch iteration. Acted as the bridge between business stakeholders who defined the need and engineering teams who built it.
+        </p>
+      </div>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <span class="number">20,000+</span>
+          <span class="label">Users onboarded</span>
+        </div>
+        <div class="outcome-card">
+          <span class="number">95%</span>
+          <span class="label">Adoption in 1 month</span>
+        </div>
+        <div class="outcome-card">
+          <span class="number">5+</span>
+          <span class="label">Programs consolidated</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Product Ownership</span>
+        <span class="tag">Requirements Definition</span>
+        <span class="tag">Stakeholder Alignment</span>
+        <span class="tag">Platform Design</span>
+        <span class="tag">Change Management</span>
+      </div>
+    </div>
+
+    <!-- Project 2: Sparkcubate -->
+    <div class="project">
+      <div class="project-header">
+        <h3>Sparkcubate: Enterprise-Startup Collaboration Program</h3>
+        <span class="project-org">Walmart via Zinnov</span>
+      </div>
+      <p class="project-subtitle">Built a 0-to-1 startup acceleration program for a Fortune 100 retailer</p>
+      <div class="project-body">
+        <p>
+          There was no structured way for Walmart's innovation teams to discover, evaluate, and pilot with startups. I designed the entire program from scratch: evaluation frameworks, engagement playbooks, scoring criteria, and review cadences. Then I ran it.
+        </p>
+        <p>
+          <strong>My role:</strong> End-to-end program design and execution. I scouted startups, ran technical evaluations, managed pilot execution across business units, navigated complex internal dependencies, and closed deals that turned into long-term partnerships. I also synthesized insights from 300+ evaluations into gap reports that influenced Walmart's product roadmap.
+        </p>
+      </div>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <span class="number">300+</span>
+          <span class="label">Startups evaluated</span>
+        </div>
+        <div class="outcome-card">
+          <span class="number">0 → 1</span>
+          <span class="label">Program built from scratch</span>
+        </div>
+        <div class="outcome-card">
+          <span class="number">Multiple</span>
+          <span class="label">Pilots converted to partnerships</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Program Design</span>
+        <span class="tag">Startup Scouting</span>
+        <span class="tag">Pilot Management</span>
+        <span class="tag">Stakeholder Management</span>
+        <span class="tag">Gap Analysis</span>
+      </div>
+    </div>
+
+    <!-- Project 3: Startup Eval Automation -->
+    <div class="project">
+      <div class="project-header">
+        <h3>AI-Powered Startup Evaluation System</h3>
+        <span class="project-org">Personal Project</span>
+      </div>
+      <p class="project-subtitle">Automation system that replaces 2-3 hours of manual startup research with a single trigger</p>
+      <div class="project-body">
+        <p>
+          After doing hundreds of startup evaluations manually, I saw the bottleneck and built a solution. The system takes a startup name as input, pulls data from multiple sources, runs it through an LLM-based scoring framework with multiple AI agents handling different parts of the analysis, and generates a structured evaluation report.
+        </p>
+        <p>
+          <strong>How it works:</strong> Built on n8n with AI agents orchestrated across research, scoring, and report generation steps. Each agent handles a distinct task and passes structured output to the next. The final output is a formatted evaluation ready for stakeholder review.
+        </p>
+      </div>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <span class="number">~90%</span>
+          <span class="label">Time saved per evaluation</span>
+        </div>
+        <div class="outcome-card">
+          <span class="number">Multi-agent</span>
+          <span class="label">Orchestration pipeline</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">n8n</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">LLM Orchestration</span>
+        <span class="tag">Workflow Automation</span>
+        <span class="tag">Problem-first Building</span>
+      </div>
+      <a class="project-link" href="https://github.com/nithrajmohan-afk/startup-eval-automation" target="_blank">
+        View on GitHub
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+
+    <!-- Project 4: GTM Strategy -->
+    <div class="project">
+      <div class="project-header">
+        <h3>SaaS Product GTM Strategy</h3>
+        <span class="project-org">Zinnov (Automotive Client)</span>
+      </div>
+      <p class="project-subtitle">Go-to-market strategy for an internally developed SaaS tool</p>
+      <div class="project-body">
+        <p>
+          A global automotive company had built an internal SaaS tool and needed a strategy to take it to market. I led the GTM workstream: identified target segments, mapped competitive positioning, defined pricing levers, and built the business case with revenue projections.
+        </p>
+        <p>
+          <strong>My role:</strong> Led market research, segment identification, and pricing strategy. Developed and presented the full GTM plan to senior client leadership with a projected revenue potential of USD 5 Mn.
+        </p>
+      </div>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <span class="number">$5M</span>
+          <span class="label">Projected revenue potential</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Go-to-Market</span>
+        <span class="tag">Market Research</span>
+        <span class="tag">Pricing Strategy</span>
+        <span class="tag">Business Case Development</span>
+      </div>
+    </div>
+
+    <!-- Project 5: IDfy Dashboard -->
+    <div class="project">
+      <div class="project-header">
+        <h3>Multi-Parameter Analytics Dashboard</h3>
+        <span class="project-org">IDfy</span>
+      </div>
+      <p class="project-subtitle">Identified a product gap, defined requirements, and shipped a dashboard that improved efficiency by 40%</p>
+      <div class="project-body">
+        <p>
+          While working as a process intern at IDfy (reporting to the CEO), I noticed that clients had no way to track product performance across multiple parameters. I identified the gap, defined what the dashboard should show, worked with the team to build it, and shipped it across clients.
+        </p>
+        <p>
+          <strong>Impact:</strong> Product efficiency improved by 40% across clients. This was a product gap I found, scoped, and pushed to completion without being asked to.
+        </p>
+      </div>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <span class="number">40%</span>
+          <span class="label">Efficiency improvement</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Product Discovery</span>
+        <span class="tag">Requirements Definition</span>
+        <span class="tag">Data Analytics</span>
+        <span class="tag">Shipped to Customers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="section">
+    <div class="section-label">How I Work</div>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <h4>Problem first, solution second</h4>
+        <p>Every project above started with a real pain point I observed, not a feature request from a backlog. I find the bottleneck, then figure out what to build.</p>
+      </div>
+      <div class="approach-card">
+        <h4>Ship, then iterate</h4>
+        <p>The innovation portal hit 95% adoption because we shipped a focused V1 fast and iterated based on real usage. I don't over-plan.</p>
+      </div>
+      <div class="approach-card">
+        <h4>AI as a daily tool</h4>
+        <p>I use Claude and ChatGPT to draft deliverables, stress-test strategies, automate research, and build workflows. AI is how I work, not a side interest.</p>
+      </div>
+      <div class="approach-card">
+        <h4>Build across boundaries</h4>
+        <p>I've managed startup founders, enterprise PMs, engineering teams, and C-suite stakeholders in the same week. I translate between worlds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="section">
+    <div class="section-label">Tools & Skills</div>
+    <div class="tools-list">
+      <span class="tool-tag">n8n</span>
+      <span class="tool-tag">Claude</span>
+      <span class="tool-tag">ChatGPT</span>
+      <span class="tool-tag">AI Agents</span>
+      <span class="tool-tag">LLM Workflows</span>
+      <span class="tool-tag">Jira</span>
+      <span class="tool-tag">MS Project</span>
+      <span class="tool-tag">Power BI</span>
+      <span class="tool-tag">Agile / Scrum</span>
+      <span class="tool-tag">Stakeholder Management</span>
+      <span class="tool-tag">GTM Strategy</span>
+      <span class="tool-tag">Program Design</span>
+      <span class="tool-tag">Product Requirements</span>
+      <span class="tool-tag">Data Analysis</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="footer-text">Nithin Rajmohan · Bangalore, India</span>
+    <div class="footer-links">
+      <a href="mailto:nith.rajmohan@gmail.com">nith.rajmohan@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nithin-rajmohan/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/nithrajmohan-afk" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+</body>
+</html>
